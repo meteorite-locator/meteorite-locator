@@ -91,7 +91,7 @@ $(document).ready(
               marker = new google.maps.Marker({
                 position: trueLatLong,
                 map: map,
-                title: "Asteroid",
+                title: "City",
                 animation: google.maps.Animation.DROP
 
               });
@@ -100,7 +100,7 @@ $(document).ready(
               marker2 = new google.maps.Marker({
                 position: myLatLong,
                 map: map,
-                title: "City",
+                title: "Meteorite",
                 animation: google.maps.Animation.DROP
 
               });
@@ -262,7 +262,7 @@ $(document).ready(
               marker = new google.maps.Marker({
                 position: trueLatLong,
                 map: map,
-                title: "Asteroid",
+                title: "City",
                 animation: google.maps.Animation.DROP
 
               });
@@ -271,7 +271,7 @@ $(document).ready(
               marker2 = new google.maps.Marker({
                 position: myLatLong,
                 map: map,
-                title: "City",
+                title: "Asteroid",
                 animation: google.maps.Animation.DROP
 
               });
