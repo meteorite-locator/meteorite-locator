@@ -92,6 +92,7 @@ $(document).ready(
                 position: trueLatLong,
                 map: map,
                 title: "City",
+                label: "A",
                 animation: google.maps.Animation.DROP
 
               });
@@ -101,6 +102,7 @@ $(document).ready(
                 position: myLatLong,
                 map: map,
                 title: "Meteorite",
+                label: "B",
                 animation: google.maps.Animation.DROP
 
               });
