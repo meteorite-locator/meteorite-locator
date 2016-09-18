@@ -1,0 +1,80 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url(milkyway.jpg);
+  background-size: 1400px;
+  background-position: center bottom;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 70%;
+}
+#map {
+
+  height: 60%;
+  width: 100%;
+}
+
+.inputBox{
+  width: 20%;
+}
+
+.submitButton{
+  background-color: #00e600;
+  border: none;
+  font-family: 'Space Mono', monospace;
+}
+
+.submitButton:hover{
+  opacity: 0.75;
+}
+
+.data{
+  width: 100%;
+
+}
+
+.data h1{
+  text-align: center;
+}
+
+.container{
+
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.categories{
+  float: left;
+}
+
+.info{
+  float: right;
+}
+
+#badcity{
+  text-align: center;
+
+}
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    body{
+      font-size: 20%;
+    }
+    .container{
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .inputBox{
+      width: 50%;
+    }
+    html, body {
+      background-size: 400px;
+    }
+
+}
