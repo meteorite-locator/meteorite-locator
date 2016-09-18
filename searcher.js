@@ -91,20 +91,34 @@ $(document).ready(
               marker = new google.maps.Marker({
                 position: trueLatLong,
                 map: map,
-                title: "Click Me and I'll Dance For You",
+                title: "Asteroid",
                 animation: google.maps.Animation.DROP
 
               });
-marker.addListener('click', toggleBounce);
+              marker.addListener('click', toggleBounce);
 
               marker2 = new google.maps.Marker({
                 position: myLatLong,
                 map: map,
-                title: "Click Me and I'll Dance For You",
+                title: "City",
                 animation: google.maps.Animation.DROP
 
               });
               marker2.addListener('click', toggleBounce2);
+
+              var path = [
+                {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])},
+                {lat: lat, lng: long}
+              ];
+
+              var finalPath = new google.maps.Polyline({
+                path: path,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+              })
+              finalPath.setMap(map);
             }
 
             function toggleBounce() {
@@ -121,6 +135,10 @@ marker.addListener('click', toggleBounce);
                 marker2.setAnimation(google.maps.Animation.BOUNCE);
               }
             }
+
+
+
+
             initMap2();
 
 
@@ -130,9 +148,10 @@ marker.addListener('click', toggleBounce);
   function changeCity() {
     var city = document.getElementById("userInput").value;
     city = city.replace(/\s+/g, '');
+    city = city.toLowerCase()
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'http://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
+      url = 'https://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
       $.ajax({
           url: url,
           async: false,
@@ -211,6 +230,7 @@ marker.addListener('click', toggleBounce);
             var marker;
             function initMap2() {
               var myLatLong = {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])};
+              var trueLatLong = {lat: lat, lng: long};
 
               map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLong,
@@ -240,13 +260,36 @@ marker.addListener('click', toggleBounce);
               });
 
               marker = new google.maps.Marker({
-                position: myLatLong,
+                position: trueLatLong,
                 map: map,
-                title: "Click Me and I'll Dance For You",
+                title: "Asteroid",
                 animation: google.maps.Animation.DROP
 
               });
               marker.addListener('click', toggleBounce);
+
+              marker2 = new google.maps.Marker({
+                position: myLatLong,
+                map: map,
+                title: "City",
+                animation: google.maps.Animation.DROP
+
+              });
+              marker2.addListener('click', toggleBounce2);
+
+              var path = [
+                {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])},
+                {lat: lat, lng: long}
+              ];
+
+              var finalPath = new google.maps.Polyline({
+                path: path,
+                geodesic: true,
+                strokeColor: '#FF0000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+              })
+              finalPath.setMap(map);
             }
 
             function toggleBounce() {
@@ -254,6 +297,13 @@ marker.addListener('click', toggleBounce);
                 marker.setAnimation(null);
               } else {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
+            }
+            function toggleBounce2() {
+              if (marker2.getAnimation() !== null) {
+                marker2.setAnimation(null);
+              } else {
+                marker2.setAnimation(google.maps.Animation.BOUNCE);
               }
             }
             initMap2();
