@@ -149,16 +149,11 @@ $(document).ready(
   )
   function changeCity() {
     var city = document.getElementById("userInput").value;
-    var countrycode = '';
-    if (city.indexOf(',') != -1){
-        countrycode = 'countrcode=' + 'US';
-        city = city.substr(0, city.indexOf(','));
-    }
     city = city.replace(/\s+/g, '');
     city = city.toLowerCase()
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'https://api.opencagedata.com/geocode/v1/json?q=' + city + '+' + countrycode + '&key=f8157dec35f4eb2994124446975a753e'
+      url = 'https://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
       $.ajax({
           url: url,
           async: false,
