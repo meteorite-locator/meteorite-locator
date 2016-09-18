@@ -93,6 +93,7 @@ $(document).ready(
                 map: map,
                 title: "City",
                 label: "A",
+                fillColor: black,
                 animation: google.maps.Animation.DROP
 
               });
